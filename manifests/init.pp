@@ -7,27 +7,27 @@ class forumone ($ports = [80, 443, 8080, 8081, 18983, 8983, 3306, 13306, 1080, 4
   
   group { 'vagrant':
     ensure  => present,
-    gid     => $::puppet_user
+    gid     => $::host_gid
   }
   
   user { 'vagrant': 
     ensure  => present,
-    uid     => $::puppet_user,
+    uid     => $::host_uid,
     require => Group['vagrant']  
   }
   
   file { "/vagrant":   
     ensure  => "directory",
-    owner   => $::puppet_user,
-    group   => $::puppet_group,
+    owner   => 'vagrant',
+    group   => 'vagrant',
     require => User['vagrant']
   }
   
   # Vagrant cachier directory
   file { "/tmp/vagrant-cache":
     ensure  => "directory",
-    owner   => $::puppet_user,
-    group   => $::puppet_group,
+    owner   => 'vagrant',
+    group   => 'vagrant',
     require => User['vagrant']
   }
 

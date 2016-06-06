@@ -38,7 +38,6 @@ class forumone::behat ($version = '2.5') {
       ensure   => present,
       provider => 'npm',
       require  => Class['::nodejs'],
-      path     => [ '/home/vagrant/.rbenv/shims', '/home/vagrant/.rbenv/bin' , '/user/local/node/node-default/bin', '/usr/local/bin', '/bin', '/usr/bin', '/usr/sbin', '/usr/local/sbin', '/sbin', '/home/vagrant/bin']
       environment => ["PATH=/home/vagrant/.rbenv/shims:/home/vagrant/.rbenv/bin:/usr/local/node/node-default/bin:/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin:/home/vagrant/bin"]
     }
 

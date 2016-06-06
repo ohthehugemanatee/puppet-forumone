@@ -37,7 +37,8 @@ class forumone::behat ($version = '2.5') {
     package { ["phantomjs-prebuilt"]:
       ensure   => present,
       provider => 'npm',
-      require  => Class['::nodejs']
+      require  => Class['::nodejs'],
+      path     => [ '/home/vagrant/.rbenv/shims', '/home/vagrant/.rbenv/bin' , '/user/local/node/node-default/bin', '/usr/local/bin', '/bin', '/usr/bin', '/usr/sbin', '/usr/local/sbin', '/sbin', '/home/vagrant/bin']
     }
 
     file { "${path}/tests/behat/files":
